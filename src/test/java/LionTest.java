@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 
 public class LionTest {
-@Mock
+
     private final String lionSex;
     private final boolean lionHasMane;
 
@@ -45,7 +45,7 @@ public class LionTest {
     public void checkLionSexTest() throws Exception {
         Feline feline = Mockito.mock(Feline.class);
         Lion lion = new Lion(lionSex, feline);
-        boolean actual = lion.hasMane;
+        boolean actual = lion.doesHaveMane();
         boolean expected = lionHasMane;
         assertEquals(expected, actual);
     }
