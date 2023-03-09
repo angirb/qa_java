@@ -1,45 +1,39 @@
+import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import com.example.Feline;
+
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Parameterized.class)
+
 
 public class FelineTest {
 
-    private final int kittenCount;
-    private final int getKittenCount;
-
-
-    public FelineTest(int kittenCount, int getKittenCount) {
-        this.kittenCount = kittenCount;
-        this.getKittenCount = getKittenCount;
+    @Test
+    public void felineTestEatFood() throws Exception {
+        Feline feline = new Feline();
+        List<String> actual = feline.eatMeat();
+        assertEquals(List.of("Животные", "Птицы", "Рыба"), actual);
     }
-    @Parameterized.Parameters
+    @Test
+    public void felineCheckKittens() {
+        Feline feline = new Feline();
+        Assert.assertEquals(4, feline.getKittens());
+    }
+    @Test
+    public void felineTestGetFamily() {
+        Feline feline = new Feline();
+        String actual = feline.getFamily();
+        String expected = "Кошачьи";
+        assertEquals(expected, actual);
 
-    public static Object[][] kittenCount() {
-        return new Object[][] {
-                {4, 4},
-                {5, 5},
-
-        };
     }
     @Test
     public void felineTest() {
         Feline feline = new Feline();
-        int actual = feline.getKittens(kittenCount);
-        int expected = feline.getKittens(getKittenCount);
+        int actual = feline.getKittens();
+        int expected = 4;
         assertEquals(expected, actual);
     }
-    @Test
-    public void felineTest2() {
-        Feline feline = new Feline();
-        int actual = feline.getKittens(kittenCount);
-        int expected = feline.getKittens(getKittenCount);
-        assertEquals(expected, actual);
-    }
-
-
 }
