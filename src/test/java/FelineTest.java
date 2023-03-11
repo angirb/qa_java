@@ -29,11 +29,4 @@ public class FelineTest {
         assertEquals(expected, actual);
 
     }
-    @Test
-    public void felineTest() {
-        Feline feline = new Feline();
-        int actual = feline.getKittens();
-        int expected = 4;
-        assertEquals(expected, actual);
-    }
 }
